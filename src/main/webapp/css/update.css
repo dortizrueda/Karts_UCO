@@ -5,10 +5,12 @@
     font-family: sans-serif;
 }
 
-body{
-    background-image:url('images/cool-background.png');
-    background-color: #EBEBEB;
-}
+body {
+    background-image: url('images/background_5.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+  }
 
 .bar{
     background-color: #2E4053;
