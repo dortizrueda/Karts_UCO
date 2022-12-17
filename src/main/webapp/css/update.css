@@ -1,227 +1,227 @@
 *{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
 }
 
 body {
-    background-image: url('images/background_5.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;  
-    background-size: cover;
-  }
+  background-image: url('images/background_5.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
 
 .bar{
-    background-color: #2E4053;
-    color: white;
+  background-color: #2E4053;
+  color: white;
 }
 
 .bar-content{
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  align-items: center;
 }
 
 .bar-content a{
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 .bar-content a:hover{
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .bar h1{
-    padding: 10px;
-    padding-left: 27px;
+  padding: 10px;
+  padding-left: 27px;
 }
 
 .bar h3{
-    padding-right: 15px;
+  padding-right: 15px;
 }
 
 .fa-chevron-left{
-    font-size: 22px;
-    margin-right: 7px;
+  font-size: 22px;
+  margin-right: 7px;
 }
 
 .fa-sign-out-alt{
-    margin-left: 8px;
-    font-size: 18px;
+  margin-left: 8px;
+  font-size: 18px;
 }
 
 .all{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-top: 20px;
 }
 
 .options{
-    margin: auto;
-    width: 600px;
-    margin-top: 50px;
+  margin: auto;
+  width: 600px;
+  margin-top: 50px;
 }
 
 .data{
-    background-color: white;
-    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
 }
 
 .data h2{
-    background-color: #EFEFEF;
-    padding: 15px;
-    color: #474747;
-    text-align: center;
+  background-color: #EFEFEF;
+  padding: 15px;
+  color: #474747;
+  text-align: center;
 }
 
 .data form{
-    padding: 20px;
-    margin-top: 10px;
+  padding: 20px;
+  margin-top: 10px;
 }
 
 .data input{
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
 }
 
 .data input[type="button"]{
-    font-weight: bold;
-    border: 0;
-    color: white;
-    background-color: #28B463;
-    cursor: pointer;
-    margin-top: 10px;
+  font-weight: bold;
+  border: 0;
+  color: white;
+  background-color: #F72585;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 .data input[type="button"]:hover{
-    background-color: #239B56;
+  background-color: #b5179e;
 }
 
 .delete-account{
-    text-align: center;
-    margin: 20px;
-    padding: 20px;
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
 }
 
 .delete-account a{
-    text-decoration: none;
-    background-color: #C20000;
-    color: white;
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 2px;
-    padding-left: 20px;
-    padding-right: 20px;
+  text-decoration: none;
+  background-color: #C20000;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .delete-account a:hover{
-    background-color: #A50000;
+  background-color: #A50000;
 }
 
 .modal{
-    background-color: rgba(0,0,0,.8);
-    position:fixed;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    opacity: 0;
-    pointer-events:none;
-    transition: all 0.5s;
-    display: flex;
-    align-items: center;
+  background-color: rgba(0,0,0,.8);
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  opacity: 0;
+  pointer-events:none;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
 }
 
 #delete-modal:target{
-    opacity:1;
-    pointer-events:auto;
+  opacity:1;
+  pointer-events:auto;
 }
 
 .exit{
-    position:fixed;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
 }
 
 .modal-content{
-    position: relative;
-    padding: 30px;
-    background-color: white;
-    margin: auto;
-    border-radius: 3px;
-    width: 400px;
+  position: relative;
+  padding: 30px;
+  background-color: white;
+  margin: auto;
+  border-radius: 3px;
+  width: 400px;
 }
 
 .modal-content h2{
-    margin-bottom: 15px;
-    text-align: center;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .modal-content hr{
-    margin-top: 15px;
-    margin-bottom: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .modal-content p{
-    margin-top: 30px;
-    text-align: center;
+  margin-top: 30px;
+  text-align: center;
 }
 
 .modal-content ul{
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
 }
 
 .modal-content a{
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .cancel-button{
-    padding: 10px;
-    border: 2px solid black;
-    color: black;
-    font-weight: bold;
-    border-radius: 2px;
-    cursor: pointer;
+  padding: 10px;
+  border: 2px solid black;
+  color: black;
+  font-weight: bold;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
 .cancel-button:hover{
-    color: white;
-    background-color: #1C2833;
+  color: white;
+  background-color: #1C2833;
 }
 
 .delete-button{
-    padding: 10px;
-    background-color: #C20000;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 2px;
+  padding: 10px;
+  background-color: #C20000;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 2px;
 }
 
 .delete-button:hover{
-    background-color: #A50000;
+  background-color: #A50000;
 }
 
 #incomplete-form-error{
-	display: none;
-	color: #C20000;
+display: none;
+color: #C20000;
 }
 
 #name-error{
-	display: none;
-	color: #C20000;
+display: none;
+color: #C20000;
 }
 
 #password-error{
-	display: none;
-	color: #C20000;
+display: none;
+color: #C20000;
 }
