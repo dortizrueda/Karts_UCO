@@ -7,28 +7,37 @@
 <meta charset="UTF-8">
 <style type="text/css">
 body{
-    text-align: center;
+	text-align: center;
+	background-image: url('../../css/images/background_5.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
 }
 
+
 h2{
-    margin: 50px;
+	margin: 50px;
+	font-size: 30px;
+	color: black;
 }
 
 a{
-    text-decoration: none;
-    color: black;
-    padding: 8px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-top: 20px;
-    border: 1px solid black;
-    font-weight: bold;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    background-color: #7209B7;
+    padding: 10px;
     font-size: 20px;
+    width: 50px;
+    height: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
 }
 
 a:hover{
-    color: white;
-    background-color: black;
+    background-color: #560BAD;
+    cursor: pointer;
 }
 </style>
 <title>Registro correcto</title>
