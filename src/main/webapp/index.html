@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Meta for mobile web view-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   	<!-- CSS -->
+    <link rel=StyleSheet href="css/index.css" type="text/css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css" type="text/css">
+    
+    <title>Iniciar Sesion o Registrarse</title>
+</head>
+<body>
+
+    <div class="logo">
+        <img src="css/images/logo2r.png" alt="Circo Loco Karts Logo" style="float: left">
+    </div>
+
+    <div class="all">
+        <div class="form">
+
+            <h1>Tu proxima carrera te espera!</h1>
+            
+            <form action="MVC/controller/loginController.jsp" method="POST" id="login-form">
+                        <input type="text" placeholder="Introduzca correo electronico" id="email" name = "login-email">
+                        <input type="password" placeholder="Introduzca contrasenia" id="password" name ="login-password">
+                        <p id="error"></p>
+                        <input type="button" value="Iniciar Sesion" class="login" onclick="validateLogin()" >
+                    </form>
+                    
+                    <div class="separator">
+                        <span>¿No tienes cuenta?
+
+                        </span>
+                    </div>
+
+                    <a href="#register-modal"><div class="button">Registrarse</div></a>
+
+            </div>
+
+            <div id="register-modal" class="modal">
+                <a href="#" class="close"></a>
+                <div class="modal-content">
+                    <h2>REGÍSTRATE</h2>
+                    <a href="#" class="cross"><i class="fas fa-times"></i></a>
+    
+                    <form action="RegisterController" method="POST" id="register-form">
+                   
+                        <div class="form-group" id="name-group">
+                            <div class="new-input">
+                                <input type="text" name="register-name" id="" placeholder="Nombre">
+                                <i class="form-validation-status fas fa-times-circle"></i>
+                            </div>
+                            <p class="form-input-error"></p>
+                        </div>
+                        <div class="form-group" id="surname-group">
+                            <div class="new-input">
+                                <input type="text" name="register-surname" id="" placeholder="Apellidos">
+                                <i class="form-validation-status fas fa-times-circle"></i>
+                            </div>
+                            <p class="form-input-error"></p>
+                        </div>
+                        
+                        <div class="form-group" id="mail-group">
+                            <div class="new-input">
+                                <input type="email" name="register-mail" id="" placeholder="Correo electrónico">
+                                <i class="form-validation-status fas fa-times-circle"></i>
+                            </div> 
+                            <p class="form-input-error">Introduzca un correo electrónico válido.</p>
+                        </div>
+                        <div class="form-group" id="type-group">
+                        	<div class="new-input">
+                        	<select name="register-type">
+								<option value="admin">Admin</option>
+								<option value="no_admin">No Admin</option>
+							</select><br>
+							</div>
+							 <p class="form-input-error"></p>
+                        	</div>
+                        <div class="form-group" id="password-group">
+                            <div class="new-input">
+                                <input type="password" name="register-password" placeholder="Contraseña">
+                                <i class="form-validation-status fas fa-times-circle"></i>
+                            </div>
+                            <p class="form-input-error">La contraseña debe tener de 4 a 16 dígitos.</p>
+                        </div>
+                        <div class="form-group" id="fecha_nacimiento-group">
+                            <div class="new-input">
+                                <input type="date" name="register-fecha_nacimiento" id="" placeholder="Fecha Nacimiento" onClick="$(this).removeClass('placeholderclass')" class="dateclass placeholderclass">
+                                <i class="form-validation-status fas fa-times-circle"></i>
+                            	
+                            </div>
+                            <p class="form-input-error"></p>
+                        </div>
+                        <p class="form-input-error"></p>
+                        <p id="incomplete-form-error" class="incomplete">Debe completar todos los campos.</p>
+                        <input type="button" value="Registrarse" class="register-button" onclick="submitform()">
+                        <p class="register"> ¿Ya tienes una cuenta? <a href="#">Inicia sesion</a></p>
+        
+                    </form>
+    
+                </div>
+            </div>
+           
+
+    </div>
+    <script>
+    function validateLogin(){
+
+        var username = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        if(username === "" || password === ""){
+            document.getElementById("error").innerHTML = "Debe introducir su correo electrónico y contraseña.";
+        }
+        else{
+        	document.getElementById("login-form").submit();
+        }
+    }
+    </script>
+    <script>
+    const formulario = document.getElementById('register-form');
+    const inputs = document.querySelectorAll('#register-form input');
+
+    const expresiones = {
+    	nombre : /^[a-zA-ZÁ-ÿ\s]{2,15}$/,
+    	apellido : /^[a-zA-ZÁ-ÿ\s]{2,30}$/,
+        password: /^.{4,16}$/, //4 a 12 digitos.
+        correo: /^[a-zA-Z0-9.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/
+    }
+
+    const campos = {
+        name : false,
+        surname : false,
+        mail : false,
+        password : false,
+    }
+       
+    const validarCampo = (expresion, input, campo) => {
+        if(expresion.test(input.value)){
+                    document.getElementById(`${campo}-group`).classList.remove('form-group-incorrect');
+                    document.getElementById(`${campo}-group`).classList.add('form-group-correct');
+                    document.querySelector(`#${campo}-group i`).classList.remove('fa-times-circle');
+                    document.querySelector(`#${campo}-group i`).classList.add('fa-check-circle');
+                    document.querySelector(`#${campo}-group .form-input-error`).classList.remove('form-input-error-active');
+                    campos[campo] = true;
+                } else {
+                    document.getElementById(`${campo}-group`).classList.add('form-group-incorrect');
+                    document.getElementById(`${campo}-group`).classList.remove('form-group-correct');
+                    document.querySelector(`#${campo}-group i`).classList.add('fa-times-circle');
+                    document.querySelector(`#${campo}-group i`).classList.remove('fa-check-circle');
+                    document.querySelector(`#${campo}-group .form-input-error`).classList.add('form-input-error-active');
+                    campos[campo] = false;
+                }
+    }
+    const validarFormulario = (e) => {
+        switch (e.target.name) {
+
+            case "register-name":
+                validarCampo(expresiones.nombre, e.target, 'name');
+            break;
+
+            case "register-surname":
+                validarCampo(expresiones.apellido, e.target, 'surname');
+            break;
+
+            case "register-mail":
+                validarCampo(expresiones.correo, e.target, 'mail');
+            break;
+
+            case "register-password":
+                validarCampo(expresiones.password, e.target, 'password');
+            break;          
+        } 
+    }
+
+		inputs.forEach((input) => {
+			input.addEventListener('keyup',validarFormulario);	
+			input.addEventListener('blur',validarFormulario);	
+		});
+        function submitform(){
+        	if(campos.name && campos.surname && campos.mail && campos.password ){  
+      			document.getElementById("register-form").submit();
+        	}else{
+        		document.getElementById('incomplete-form-error').classList.remove('incomplete-active');
+        		document.getElementById('incomplete-form-error').classList.remove('incomplete');
+
+        	}
+        }
+    </script>
+            
+    
+</body>
+</html>

@@ -1,0 +1,313 @@
+/*Put a background image for the sign in and log in view*/
+body {
+    background-image: url('images/background_5.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+  }
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Cursive;
+}
+
+.all{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+}
+
+.logo{
+    width: 50px;
+    height: 50px;
+} 
+
+.form{
+    width: 520px;
+}
+
+.all .form h1{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/*Separator between Log in button and Sign in button*/
+.separator {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap; 
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.separator > span {
+    position: relative;
+    display: inline-block;
+}
+
+.separator > span:before,
+.separator > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: darkgrey;
+}
+
+.separator > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.separator > span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+
+.form form input{
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+/*Shows the border color of the box on hover*/
+.form form input:hover{
+    border-color: #F72585;
+    cursor: pointer;
+}
+
+/* Login button design */
+.login{
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    color: white;
+    background-color: #F72585;
+    border: 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/*Change color when hovering over button*/
+.login:hover{
+    background-color: #b5179e;
+    cursor: pointer;
+}
+
+/*Error message design*/
+#error{
+    margin-left: 10px;
+    margin-top: 15px;
+    font-size: 15px;
+    color: red;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.button{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    background-color: #7209B7;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.button:hover{
+    background-color: #560BAD;
+    cursor: pointer;
+}
+
+
+/*Modal box for sign in*/
+.modal{
+
+    background-color: rgba(238, 238, 238, 0.7);
+    position: fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    opacity:0;
+    display: flex;
+    align-items: center;
+    pointer-events:none;
+    transition: all 1s;
+    text-align: center;
+}
+
+
+.modal-content{
+    position: relative;
+    background-color: white;
+    border-radius: 120px;
+    margin: auto;
+    padding: 20px;
+    width: 600px;
+}
+
+
+.modal-content h2{
+    margin-bottom: 20px;
+}
+
+.cross{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: darkgray;
+    font-size: 30px;
+}
+
+.modal-content form{
+    margin-top: 20px;
+}
+
+/*Select value placeholder design*/
+.modal-content select{
+    width: 100%;
+    margin-bottom: 20px;
+    height: 40px;
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 50px;
+    border: 1px solid darkgray;
+    background-color: white;
+    color: darkgrey;
+}
+
+.modal-content input{
+    width: 100%;
+    font-size: 15px;
+    border: 0px;
+    outline: none;
+}
+
+.register-button{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-radius: 50px;
+    height: 40px;
+    background-color: #7209B7;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+}
+
+.register-button:hover{
+    background-color: #560BAD;
+    cursor: pointer;
+}
+
+.register{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.register a{
+    color: #006EBF;
+}
+
+.privacy{
+    font-size: 14px;
+    padding: 2px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.privacy a{
+    color: #006EBF;
+}
+
+#register-modal:target{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.close{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+}
+
+.new-input{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    padding-left: 10px;
+    border-radius: 2px;
+    border: 1px solid darkgray;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.form-input-error{
+    text-align: start;
+    color: #bb2929;
+    margin-bottom: 5px;
+    display: none;
+}
+
+.form-input-error-active{
+    display: block;
+}
+
+.form-validation-status{
+    opacity: 0;
+}
+
+.form-group-correct .form-validation-status{
+    color: #1ed12d;
+    opacity: 1;
+}
+
+.form-group-incorrect .form-validation-status{
+    color: #bb2929;
+    opacity: 1;
+}
+
+.form-group-incorrect .new-input{
+    border: 3px solid #bb2929;
+}
+
+#incomplete-form-error{
+    text-align: start;
+    color: #bb2929;
+}
+
+.incomplete{
+    display: none;
+}
+
+.incomplete-active{
+    display: block;
+}
+
+.dateclass {
+    width: 100%;
+  }
+  
+  .dateclass.placeholderclass::before {
+    width: 100%;
+    content: attr(placeholder);
+  }
+  
+  .dateclass.placeholderclass:hover::before {
+    width: 0%;
+    content: "";
+  }

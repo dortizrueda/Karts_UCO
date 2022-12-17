@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>PaginaWeb</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+  	<servlet-name>RegisterController</servlet-name>
+  	<servlet-class>es.uco.pw.servlet.RegisterController</servlet-class>
+  </servlet>
+<servlet>
+  	<servlet-name>AddP</servlet-name>
+  	<servlet-class>es.uco.pw.servlet.AddPista</servlet-class>
+  </servlet>
+<servlet-mapping>
+	<servlet-name>AddP</servlet-name>
+	<url-pattern>/AddP</url-pattern>
+</servlet-mapping>
+  <servlet>
+  	<servlet-name>AddKart</servlet-name>
+  	<servlet-class>es.uco.pw.servlet.AddKart</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ModifyKart</servlet-name>
+  	<servlet-class>es.uco.pw.servlet.ModifyKart</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ModifyPista</servlet-name>
+  	<servlet-class>es.uco.pw.servlet.ModifyPista</servlet-class>
+  </servlet>
+  <env-entry>
+      <env-entry-name>url</env-entry-name>
+      <env-entry-type>java.lang.String</env-entry-type>      
+      <env-entry-value>jdbc:mysql://oraclepr.uco.es:3306/i92roraj</env-entry-value>
+  </env-entry>
+
+  <env-entry>
+      <env-entry-name>userbd</env-entry-name>
+      <env-entry-type>java.lang.String</env-entry-type>
+      <env-entry-value>i92roraj</env-entry-value>
+  </env-entry>
+  <env-entry>
+  	  <env-entry-name>driverbd</env-entry-name>
+      <env-entry-type>java.lang.String</env-entry-type>
+      <env-entry-value>com.mysql.jdbc.Driver</env-entry-value>
+  </env-entry>
+  <env-entry>
+      <env-entry-name>passwordbd</env-entry-name>
+      <env-entry-type>java.lang.String</env-entry-type>
+      <env-entry-value>prow2021</env-entry-value>
+  </env-entry>
+
+    <env-entry>
+      <env-entry-name>Sql</env-entry-name>
+      <env-entry-type>java.lang.String</env-entry-type>
+      <env-entry-value>/sql.properties</env-entry-value>
+  </env-entry>
+</web-app>
