@@ -21,11 +21,15 @@
     <title>Menu Admin</title>
 </head>
 <body>
+    <div class="logo">
+        <img src="../../css/images/logo2r.png" alt="Circo Loco Karts Logo" style="float: left">
+    </div>
+
 <%if(customerBean.getTipo().equals(Tipo.admin)){	%>
 
 
 	<div buttons>
-	<li> <h1>Bienvenido <jsp:getProperty property="correo" name="customerBean"/> !!</h1> </li>
+	<h1>Bienvenido <jsp:getProperty property="correo" name="customerBean"/> !!</h1>
 	<li>
 		<ul>
 			<a href="../../ModifyUserController"><li><i class="fas fa-user-edit"></i>Modificar Datos</li></a>
@@ -38,8 +42,8 @@
 			<a href="#delete-modal"><button>Info de Usuarios</button></a>
 			</div>
 		
+		</li>
 		</ul>
-	</li>
 	</div>
 	
 	<div id="add-modal" class="modal">
@@ -64,7 +68,7 @@
 							</select>
                     <input type="text" id="capacity" placeholder="Aforo" name="capacity" required>
                     
-                    <input type="submit" value="AddP" class="submit">
+                    <input type="submit" value="INSERTAR" class="submit">
                 </form>
          </div>
          </div>

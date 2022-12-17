@@ -19,6 +19,11 @@
 </head>
 	
 <body>
+
+    <div class="logo">
+        <img src="../../css/images/logo2r.png" alt="Circo Loco Karts Logo" style="float: left">
+    </div>
+
 <%if(customerBean.getTipo().equals(Tipo.no_admin)){	%>
 	
 	<div >
