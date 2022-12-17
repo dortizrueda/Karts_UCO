@@ -110,7 +110,7 @@ public class RegisterController extends HttpServlet {
 
 				int devuelto=msd.insertar1(p);
 				session.invalidate();
-				RequestDispatcher rd = request.getRequestDispatcher("/registerView.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("/index.html");
 				rd.include(request, response);
 
 

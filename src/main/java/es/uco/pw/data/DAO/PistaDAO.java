@@ -539,4 +539,58 @@ public class PistaDAO {
 			}
 			return reservas;	
 			}
+	public ArrayList<PistaDTO> getAll3(String type) {
+		// TODO Auto-generated method stub
+		ArrayList<PistaDTO>reservas=new ArrayList<PistaDTO>();
+		try {
+			Conexion conex=new Conexion();
+			Connection connection=Conexion.get_Conexion1();
+			String SQL="";
+			Properties SQLproperties = new Properties();
+				try {
+					Context env= (Context)new InitialContext().lookup("java:comp/env");
+					String ruta = (String)env.lookup("Sql");
+					ClassLoader classLoad=Thread.currentThread().getContextClassLoader();
+					java.io.InputStream inp=classLoad.getResourceAsStream(ruta);
+					SQLproperties.load(inp);
+					SQL=SQLproperties.getProperty("GETALL.PISTA");
+				}catch(FileNotFoundException e) {
+					e.printStackTrace();
+				}catch(IOException e) {
+					e.printStackTrace();
+				}
+				Statement stmt = connection.createStatement();
+				ResultSet rs = (ResultSet)stmt.executeQuery("SELECT * FROM Pista WHERE dificultad='"+type+"'");
+				while(rs.next()) {
+					PistaDTO p = new PistaDTO();
+	                p.setNombre(rs.getString("nombre"));
+	                String dispo=rs.getString("disponibilidad");
+	                if(dispo.compareTo("disponible")==0) {
+	                	p.setDisponibilidad(Disponibilidad.disponible);
+	                }else if(dispo.compareTo("no_disponible")==0) {
+	                	p.setDisponibilidad(Disponibilidad.no_disponible);
+
+	                }
+	                String dificult=rs.getString("dificultad");
+	                if(dificult.compareTo("infantil")==0) {
+	                	p.setDificultad(Dificultad_Pista.infantil);
+	                }else if(dificult.compareTo("familiar")==0) {
+	                	p.setDificultad(Dificultad_Pista.familiar);
+	                }else if(dificult.compareTo("adultos")==0) {
+	                	p.setDificultad(Dificultad_Pista.adultos);
+	                }
+	                p.setNumero_karts(rs.getInt("numero_karts"));
+		                reservas.add(p);
+				}
+			
+			if(stmt!=null) {
+				stmt.close();
+			}
+			rs.close();
+			connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return reservas;	
+			}
 }

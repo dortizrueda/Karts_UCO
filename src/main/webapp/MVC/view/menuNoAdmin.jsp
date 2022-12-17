@@ -49,8 +49,8 @@
 			<div class="add-function">
 			<a href="#add-modal"><button class="button">Reserva Individual</button></a>
 			<a href="#addk-modal"><button class="button">Reserva Multiple</button></a>
-			<a href=""><button></button></a>
-			<a href=""><button></button></a>
+			<a href="#edit-modal"><button>Buscar Reservas</button></a>
+			<a href="#delete-modal"><button>Buscar Pista segun Tipo</button></a>
 			<a href=""><button></button></a>
 			</div>
 			
@@ -268,6 +268,54 @@
                     <input type="submit" value="AÑADIR" class="submit">
                 </form>
                 </div>
+                </div>
+        </div>
+    </div>
+    
+    <div id="edit-modal" class="modal">
+        <a href="#" class="close"></a>
+        <div class="modal-content">
+            <h2>Buscar Reservas</h2>
+               		<div class="modal-body">
+            
+            <a href="#" class="cross"><i class="fas fa-times"></i></a>             
+
+                <form action="../../SearchReserva" method="POST">
+              	
+              	   <input type="hidden" id="id_user" name="id_user"  value="<jsp:getProperty property="correo" name="customerBean"/>" required>
+                   
+					<ul>
+                        <li><input type="text" id="date" placeholder="Fecha" onfocus="(this.type='date')" name="date" required></li>
+                        <li><input type="text" id="date" placeholder="Fecha" onfocus="(this.type='date')" name="date2" required></li>
+                        
+                        
+                    </ul>
+                     
+                    <input type="submit" value="Buscar" class="submit">
+                </form>
+                </div>
+        </div>
+    </div>
+    <div id="delete-modal" class="modal">
+        <a href="#" class="close"></a>
+        <div class="modal-content">
+            <h2>Buscar Pista</h2>
+               		<div class="modal-body">
+            
+            <a href="#" class="cross"><i class="fas fa-times"></i></a>             
+
+                <form action="../../SearchPista" method="POST">
+              	
+              	   <input type="hidden" id="id_user" name="id_user"  value="<jsp:getProperty property="correo" name="customerBean"/>" required>
+                   
+					<select name="type">
+								<option value="adulto">Infantil</option>
+								<option value="familiar">Familiar</option>
+								<option value="infantil">Adulto</option>
+					</select>
+                     
+                    <input type="submit" value="Buscar" class="submit">
+                </form>
                 </div>
         </div>
     </div>
