@@ -472,6 +472,10 @@ public class UsuarioDAO {
 					e.printStackTrace();
 				}
 			PreparedStatement ps=connection.prepareStatement(SQL);
+			System.out.println(nombre);
+			System.out.println(apellidos);
+			System.out.println(password);
+			System.out.println(correo);
 			ps.setString(1, nombre);
 	        ps.setString(2, apellidos);
 	        ps.setString(3, password);

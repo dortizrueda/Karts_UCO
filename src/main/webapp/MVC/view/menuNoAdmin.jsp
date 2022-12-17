@@ -308,7 +308,7 @@
                			
                			<ul class="spectacle-options">
                				<li onclick="document.getElementById('delete-<%=reserva.getId_reserva()%>').submit()" style="cursor:pointer"><i class="fas fa-trash-alt"></i></li>
-               				<form name="form" id="delete-<%=reserva.getId_reserva()%>"action="../../DeleteReserva" style="display:none" method="POST">
+               				<form name="form" id="delete-<%=reserva.getId_reserva()%>"action="../../DeleteReserva2" style="display:none" method="POST">
                					<input type="hidden" name="id_reserva" value="<%=reserva.getId_reserva()%>">				
                				</form>
                			</ul>

@@ -37,14 +37,9 @@ a:hover{
 <body>
 
 	<h2>Se ha modificado los valores con exito</h2>
-	<%if(customerBean.getTipo().equals("admin"))
 	
-	{%>
 		<a href="MVC/view/menuAdmin.jsp">Volver</a>
-	<%}else
-	{%>
-		<a href="MVC/view/menuNoAdmin.jsp">Volver</a>
-	<% }%>
+	
 
 
 </body>

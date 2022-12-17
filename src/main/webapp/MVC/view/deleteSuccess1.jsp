@@ -36,9 +36,9 @@ a:hover{
 </head>
 <body>
 
-	<h2>No se han modificado los valores</h2>
+	<h2>Se han borrado correctamente la reserva</h2>
 	
-		<a href="MVC/view/menuAdmin.jsp">Volver</a>
+		<a href="MVC/view/menuNoAdmin.jsp">Volver</a>
 	
 
 

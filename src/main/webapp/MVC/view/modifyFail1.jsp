@@ -38,7 +38,7 @@ a:hover{
 
 	<h2>No se han modificado los valores</h2>
 	
-		<a href="MVC/view/menuAdmin.jsp">Volver</a>
+		<a href="MVC/view/menuNoAdmin.jsp">Volver</a>
 	
 
 

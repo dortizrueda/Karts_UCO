@@ -1,9 +1,7 @@
 package es.uco.pw.servlet;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,20 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import es.uco.pw.business.DTO.ReservaDTO;
 import es.uco.pw.data.DAO.ReservaDAO;
 
 /**
- * Servlet implementation class DeleteReserva
+ * Servlet implementation class DeleteReserva2
  */
-@WebServlet("/DeleteReserva")
-public class DeleteReserva extends HttpServlet {
+@WebServlet("/DeleteReserva2")
+public class DeleteReserva2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteReserva() {
+    public DeleteReserva2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -52,7 +49,7 @@ public class DeleteReserva extends HttpServlet {
 		int devuelto=msd.delete(id_reserva);
 		
 		
-		RequestDispatcher rd = request.getRequestDispatcher("MVC/view/deleteSuccess.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("MVC/view/deleteSuccess1.jsp");
 		rd.forward(request, response);
 	}
 

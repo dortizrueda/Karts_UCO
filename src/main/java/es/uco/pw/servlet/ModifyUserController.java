@@ -62,7 +62,7 @@ public class ModifyUserController extends HttpServlet {
 
             String nombre = request.getParameter("name");
             String apellidos = request.getParameter("surname");
-            String correo = request.getParameter("correo");
+            String correo = request.getParameter("mail");
             String password = request.getParameter("password");
 
             customerBean.setNombre(nombre);
@@ -76,13 +76,19 @@ public class ModifyUserController extends HttpServlet {
                         disp.forward(request, response);
                     }
                     else{
-                        RequestDispatcher disp = request.getRequestDispatcher("MVC/view/modifySuccess.jsp");
+                        RequestDispatcher disp = request.getRequestDispatcher("MVC/view/modifySuccess1.jsp");
                         disp.forward(request, response);
                     }
             }
             else{
-                RequestDispatcher disp = request.getRequestDispatcher("MVC/view/modifyFail.jsp");
-                disp.forward(request, response);
+            	if(customerBean.getTipo().equals(Tipo.admin)) {
+            		RequestDispatcher disp = request.getRequestDispatcher("MVC/view/modifyFail.jsp");
+                    disp.forward(request, response);
+            	}else if(customerBean.getTipo().equals(Tipo.no_admin)) {
+            		RequestDispatcher disp = request.getRequestDispatcher("MVC/view/modifyFail1.jsp");
+                    disp.forward(request, response);
+            	}
+                
             }
         }
 
