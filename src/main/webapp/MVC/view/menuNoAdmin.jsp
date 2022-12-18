@@ -7,12 +7,12 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="../../css/no_admin.css">
     <script src="https://kit.fontawesome.com/d846ae1254.js" crossorigin="anonymous"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Menú No Admin</title>
@@ -328,11 +328,11 @@
     
     
     
-    <div class="spectacles">
+    <div class="reservasviews">
             <h2>Mis Reservas</h2>
-            <div class="spectacles-content">
+            <div class="reservasviews-content">
                 
-                <div class="spectacles-result">
+                <div class="reservasviews-result">
                 
                 	<%
                 	
@@ -347,7 +347,7 @@
         					
         					
                     %>
-                    <div class="spectacle">
+                    <div class="reservasview">
                         <h3>Id : <%= reserva.getId_reserva() %></h3>
                         <p><span class="gray">Usuario: </span><%= reserva.getId_usuario() %></p>                                             
                         <p><span class="gray">Pista: </span><%= reserva.getId_pista() %></p>                       
@@ -359,7 +359,7 @@
                         <p><span class="gray">Numero participantes (infantiles): </span><%=reserva.getNum_children()%></p>
                			<p><span class="gray">Tipo de Reserva:  </span><%= reserva.getBono()%></p>               			
                			
-               			<ul class="spectacle-options">
+               			<ul class="reservasview-options">
                				<li onclick="document.getElementById('delete-<%=reserva.getId_reserva()%>').submit()" style="cursor:pointer"><i class="fas fa-trash-alt"></i></li>
                				<form name="form" id="delete-<%=reserva.getId_reserva()%>"action="../../DeleteReserva2" style="display:none" method="POST">
                					<input type="hidden" name="id_reserva" value="<%=reserva.getId_reserva()%>">				

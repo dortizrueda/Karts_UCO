@@ -7,7 +7,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +28,7 @@
 <%if(customerBean.getTipo().equals(Tipo.admin)){	%>
 
 
-	<div buttons>
+	<div>
 	<h1>Bienvenido <jsp:getProperty property="correo" name="customerBean"/> !!</h1>
 	<li>
 		<ul>
@@ -42,7 +42,6 @@
 			<a href="#delete-modal"><button>Info de Usuarios</button></a>
 			</div>
 		
-		</li>
 		</ul>
 	</div>
 	
@@ -167,7 +166,7 @@
         %>
             <a href="#" class="cross"><i class="fas fa-times"></i></a>
             
-            	<div class="spectacles">
+            	<div class="reservasviews">
                         <h3>Id : <%= usuario.getCorreo() %></h3>
                         <p><span class="gray">Nombre: </span><%= usuario.getNombre() %></p>                                             
                         <p><span class="gray">Apellidos: </span><%= usuario.getApellidos() %></p>    
@@ -185,11 +184,11 @@
 			        </div>
 			
         </div>
-        <div class="spectacles">
+        <div class="reservasviews">
             <h2>Reservas</h2>
-            <div class="spectacles-content">
+            <div class="reservasviews-content">
                 
-                <div class="spectacles-result">
+                <div class="reservasviews-result">
                 
                 	<%
                 		String pru;
@@ -202,7 +201,7 @@
         					ReservaDTO reserva = new ReservaDTO();
         					reserva = reservas1.get(i);
                     %>
-                    <div class="spectacle">
+                    <div class="reservasview">
                         <h3><%= reserva.getId_reserva() %></h3>
                         <p><span class="gray">Usuario: </span><%= reserva.getId_usuario() %></p>                                             
                         <p><span class="gray">Pista: </span><%= reserva.getId_pista() %></p>                       
@@ -213,7 +212,7 @@
                         <p><span class="gray">Numero participantes (adultos): </span><%=reserva.getNum_adults()%></p>
                         <p><span class="gray">Numero participantes (infantiles): </span><%=reserva.getNum_children()%></p>
                         <p><span class="gray">Tipo de Reserva:  </span><%= reserva.getBono()%></p>               			
-               			<ul class="spectacle-options">
+               			<ul class="reservasview-options">
                				<li onclick="document.getElementById('delete-<%=reserva.getId_reserva()%>').submit()" style="cursor:pointer"><i class="fas fa-trash-alt"></i></li>
                				<form name="form" id="delete-<%=reserva.getId_reserva()%>"action="../../DeleteReserva" style="display:none" method="POST">
                					<input type="hidden" name="id_reserva" value="<%=reserva.getId_reserva()%>">				
@@ -253,12 +252,12 @@
 
 	    function mostrar(e) {
 
-	        let spectacle = document.getElementsByClassName("spectacle");
+	        let reservasview = document.getElementsByClassName("reservasview");
 	        let buscador = document.getElementById("buscador");
 
 	        if(e.keyCode === 13){
-	            activar(spectacle);
-	            filtrar(spectacle, buscador);
+	            activar(reservasview);
+	            filtrar(reservasview, buscador);
 	        }
 
 	    }
