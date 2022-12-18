@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:useBean  id="customerBean" scope="session" class="es.uco.pw.display.javabean.CustomerBean"></jsp:useBean>
-<%@ page import="java.util.ArrayList, es.uco.pw.business.DTO.ReservaDTO, es.uco.pw.business.ValueObject.Tipo, java.text.SimpleDateFormat" %>
+<%@ page import="java.util.ArrayList, es.uco.pw.business.DTO.PistaDTO, es.uco.pw.business.ValueObject.Tipo" %>
 
 <!DOCTYPE html>
 <html>
@@ -48,26 +48,16 @@ a:hover{
 </head>
 <body>
 <%if(customerBean.getTipo().equals(Tipo.no_admin)){
-	ArrayList<ReservaDTO>reservas=(ArrayList<ReservaDTO>)request.getAttribute("reservas");
-	SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy HH:mm");
-	if(reservas!=null)
+	ArrayList<PistaDTO>pista=(ArrayList<PistaDTO>)request.getAttribute("pista");
+	if(pista!=null)
 	{%>
-		<h2>Lista de Reservas</h2>
-		<%for(int i=0;i<reservas.size();i++)
+		<h2>Lista de Pistas</h2>
+		<%for(int i=0;i<pista.size();i++)
 		{
-			out.println("Id_reserva: "+reservas.get(i).getId_reserva());%><br>
-			<%out.println("Id_pista: "+reservas.get(i).getId_pista());%><br>
-			<%out.println("Id_usuario: "+reservas.get(i).getId_usuario()); %><br>
-			<%out.println("Fecha_hora: "+sdf.format(reservas.get(i).getFecha_hora())); %><br>
-			<% if(reservas.get(i).getFecha_hora().after(new java.util.Date()))
-			{%>
-				<%out.println("Pendiente"); %><br><br>
-				
-			<%}else
-			{%>
-					<%out.println("Finalizada"); %><br><br>
-				
-			<%}%>
+			out.println("Nombre: "+pista.get(i).getNombre());%><br>
+			<%out.println("Aforo: "+pista.get(i).getNumero_karts());%><br>
+			<%out.println("Tipo: "+pista.get(i).getDificultad()); %><br>
+			<%out.println("Disponibilidad: "+pista.get(i).isDisponibilidad()); %><br><br>
 			
 		<%}
 	}%>

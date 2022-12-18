@@ -535,5 +535,70 @@ public class ReservaDAO {
 			}
 			return reservas;	
 	}
+	public ArrayList<ReservaDTO> getAll2(Date fecha) {
+		// TODO Auto-generated method stub
+		ArrayList<ReservaDTO>reservas=new ArrayList<ReservaDTO>();
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		try {
+			Conexion conex=new Conexion();
+			Connection connection=Conexion.get_Conexion1();
+			String SQL="";
+			Properties SQLproperties = new Properties();
+				try {
+					Context env= (Context)new InitialContext().lookup("java:comp/env");
+					String ruta = (String)env.lookup("Sql");
+					ClassLoader classLoad=Thread.currentThread().getContextClassLoader();
+					java.io.InputStream inp=classLoad.getResourceAsStream(ruta);
+					SQLproperties.load(inp);
+					SQL=SQLproperties.getProperty("SELECT.FECHA");
+				}catch(FileNotFoundException e) {
+					e.printStackTrace();
+				}catch(IOException e) {
+					e.printStackTrace();
+				}
+				Statement stmt = connection.createStatement();
+				ResultSet rs = (ResultSet)stmt.executeQuery("SELECT * FROM Reserva WHERE NOT Fecha_hora = '"+sdf.format(fecha)+"' ");
+				while(rs.next()) {
+					 ReservaDTO p = new ReservaDTO();
+					 	p.setId_reserva(rs.getInt("id_reserva"));
+		                p.setId_usuario(rs.getString("Usuario"));
+		                String fecha_hora=rs.getString("Fecha_hora");
+		                SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		                Date fech_hora=sdf1.parse(fecha_hora);
+		                p.setFecha_hora(fech_hora);
+		                p.setMinutos(rs.getInt("Minutos"));
+		                p.setId_pista(rs.getString("Id_pista"));
+		                p.setPrecio_reserva(rs.getFloat("Precio_reserva"));
+		                p.setDescuento(rs.getInt("Descuento"));
+		                String reserva= rs.getString("Tipo_Reserva");
+		                if(reserva.compareTo("infantil")==0) {
+		                	p.setReserva(Tipo_Reserva.infantil);
+		                }else if(reserva.compareTo("familiar")==0) {
+		                	p.setReserva(Tipo_Reserva.familiar);
+		                }else if(reserva.compareTo("adultos")==0) {
+		                	p.setReserva(Tipo_Reserva.adultos);
+		                }
+		                p.setNum_adults(rs.getInt("num_adultos"));
+		                p.setNum_children(rs.getInt("num_children"));
+		                String bono=rs.getString("bono");
+		                if(bono.compareTo("bono")==0) {
+			                p.setBono(Tipo_Bono.bono);
+		                }else {
+			                p.setBono(Tipo_Bono.individual);		                	
+		                }
+		                
+		                reservas.add(p);
+				}
+			
+			if(stmt!=null) {
+				stmt.close();
+			}
+			rs.close();
+			connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return reservas;	
+	}
 }
 

@@ -12,19 +12,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.uco.pw.business.DTO.PistaDTO;
 import es.uco.pw.data.DAO.PistaDAO;
-import es.uco.pw.data.DAO.ReservaDAO;
 
 /**
- * Servlet implementation class SearchPista
+ * Servlet implementation class SearchPista_Karts
  */
-@WebServlet("/SearchPista")
-public class SearchPista extends HttpServlet {
+@WebServlet("/SearchPista_Karts")
+public class SearchPista_Karts extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchPista() {
+    public SearchPista_Karts() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,23 +43,13 @@ public class SearchPista extends HttpServlet {
 		// TODO Auto-generated method stub
 		PistaDAO msd = new PistaDAO();
 		ArrayList<PistaDTO>pista=new ArrayList();
-		String type=request.getParameter("type");
-		if(type.equals("infantil")) {
-			pista=msd.getAll3(type);
+		int type=Integer.parseInt(request.getParameter("num_karts"));
+		pista=msd.getAll4(type);
 			
 			
-		}else if(type.equals("familiar")) {
-			pista=msd.getAll3(type);
-
-		}else if(type.equals("adultos")) {
-			pista=msd.getAll3(type);
-
-		}
 		RequestDispatcher rd=request.getRequestDispatcher("MVC/view/verPistas.jsp");		
 		request.setAttribute("pista", pista);
 		rd.forward(request, response);
-		
-
 	}
 
 }

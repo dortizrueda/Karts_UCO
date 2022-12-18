@@ -57,7 +57,8 @@
 			<a href="#addk-modal"><button class="button">Reserva Multiple</button></a>
 			<a href="#edit-modal"><button>Buscar Reservas</button></a>
 			<a href="#delete-modal"><button>Buscar Pista segun Tipo</button></a>
-			<a href=""><button></button></a>
+			<a href="#modifykart-modal"><button> Buscar Pista segun participantes</button></a>
+			<a href="#modifypista-modal"><button> Buscar Pista segun Fecha</button></a>
 			</div>
 			
 		</ul>
@@ -291,8 +292,8 @@
               	   <input type="hidden" id="id_user" name="id_user"  value="<jsp:getProperty property="correo" name="customerBean"/>" required>
                    
 					<ul>
-                        <li><input type="text" id="date" placeholder="Fecha" onfocus="(this.type='date')" name="date" required></li>
-                        <li><input type="text" id="date" placeholder="Fecha" onfocus="(this.type='date')" name="date2" required></li>
+                        <li><input type="text" id="date" placeholder="Fecha Inicio" onfocus="(this.type='date')" name="date" required></li>
+                        <li><input type="text" id="date" placeholder="Fecha Fin" onfocus="(this.type='date')" name="date2" required></li>
                         
                         
                     </ul>
@@ -315,10 +316,53 @@
               	   <input type="hidden" id="id_user" name="id_user"  value="<jsp:getProperty property="correo" name="customerBean"/>" required>
                    
 					<select name="type">
-								<option value="adulto">Infantil</option>
+								<option value="adultos">Adulto</option>
 								<option value="familiar">Familiar</option>
-								<option value="infantil">Adulto</option>
+								<option value="infantil">Infantil</option>
 					</select>
+                     
+                    <input type="submit" value="Buscar" class="submit">
+                </form>
+                </div>
+        </div>
+    </div>
+    
+     <div id="modifykart-modal" class="modal">
+        <a href="#" class="close"></a>
+        <div class="modal-content">
+            <h2>Buscar Pista</h2>
+               		<div class="modal-body">
+            
+            <a href="#" class="cross"><i class="fas fa-times"></i></a>             
+
+                <form action="../../SearchPista_Karts" method="POST">
+              	
+              	   <input type="hidden" id="id_user" name="id_user"  value="<jsp:getProperty property="correo" name="customerBean"/>" required>
+                   
+					<input type="number" id="num_karts" name="num_karts" placeholder="¿Cuantos participantes sois?" value="" required>
+                     
+                    <input type="submit" value="Buscar" class="submit">
+                </form>
+                </div>
+        </div>
+    </div>
+    
+     <div id="modifypista-modal" class="modal">
+        <a href="#" class="close"></a>
+        <div class="modal-content">
+            <h2>Buscar Pista</h2>
+               		<div class="modal-body">
+            
+            <a href="#" class="cross"><i class="fas fa-times"></i></a>             
+
+                <form action="../../SearchPista_Reserva" method="POST">
+              	
+              	   <input type="hidden" id="id_user" name="id_user"  value="<jsp:getProperty property="correo" name="customerBean"/>" required>
+                   
+					<ul>
+                        <li><input type="text" id="date" placeholder="¿Que fecha deseas saber si existe reserva?" onfocus="(this.type='date')" name="date" required></li>                        
+                        <li><input type="text" id="time" placeholder="Hora" onfocus="(this.type='time')" name="time" required></li>                        
+                    </ul>
                      
                     <input type="submit" value="Buscar" class="submit">
                 </form>
