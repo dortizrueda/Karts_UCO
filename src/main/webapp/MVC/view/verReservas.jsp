@@ -11,7 +11,7 @@
 <style type="text/css">
 body{
 	text-align: center;
-	background-image: url('../../css/images/background_5.png');
+	background-image: url('css/images/background_5.png');
     background-repeat: no-repeat;
     background-attachment: fixed;  
     background-size: cover;

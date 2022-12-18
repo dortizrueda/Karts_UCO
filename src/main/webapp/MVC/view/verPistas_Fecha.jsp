@@ -11,7 +11,7 @@
 <style type="text/css">
 body{
 	text-align: center;
-	background-image: url('../../css/images/background_5.png');
+	background-image: url('css/images/background_5.png');
     background-repeat: no-repeat;
     background-attachment: fixed;  
     background-size: cover;
@@ -44,6 +44,12 @@ a:hover{
     background-color: #560BAD;
     cursor: pointer;
 }
+
+.texto{
+	font-size: 15px;
+	color: black;
+	margin-bottom: 15px;
+}
 </style>
 </head>
 <body>
@@ -52,6 +58,7 @@ a:hover{
 	if(pista!=null)
 	{%>
 		<h2>Lista de Pistas</h2>
+		
 		<%for(int i=0;i<pista.size();i++)
 		{
 			out.println("Nombre: "+pista.get(i).getNombre());%><br>

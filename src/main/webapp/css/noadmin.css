@@ -13,11 +13,6 @@ h1{
 }
 
 
-.logo{
-  width: 35px;
-  height: 35px;
-} 
-
 body{
 background-image:url('images/background_4.png');
   background-color: #EBEBEB;
@@ -84,19 +79,6 @@ overflow-y:auto;
   margin-top: 20px;
 }
 
-.users{
-  width: 25%;
-  margin-right: 10px;
-  margin-left: 20px;
-  background-color: white;
-  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
-}
-
-.users h2{
-  background-color: #EFEFEF;
-  padding: 15px;
-  color: #474747;
-}
 
 .table{
   position: relative;
@@ -126,6 +108,7 @@ overflow-y:auto;
   padding: 15px;
   color: white;
 }
+
 .container {
 padding: 1rem 1.5rem;
 width: 300px;
@@ -139,6 +122,7 @@ text-align: justify;
 line-height: 1.3;
 overflow: auto;
 }
+
 .container p:not(:last-child) {
 margin-bottom: 1rem;
 }
@@ -152,27 +136,7 @@ border-radius: 4px;
 .container::-webkit-scrollbar-track:active {
 background: #d4d4d4;
 }
-.search{
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  height: 10%;
-}
 
-.search-input{
-  width: 100%;
-  margin: 15px;
-  border: 0;
-  padding: 10px;
-  background-color: #DFDFDF;
-  border-radius: 18px;
-  color: #494949;
-  font-size: 16px;
-  outline: none;
-  padding-left: 15px;
-  height: 40px;
-  box-sizing: border-box;
-}
 
 .reservasview {
   padding: 15px;
@@ -196,20 +160,6 @@ background: #d4d4d4;
   color: black;
 }
 
-.sessions{
-  padding-top: 7px;
-  display: none;
-}
-
-#show-sessions{
-  display: block;
-}
-
-.sessions-list{
-  padding-left: 23px;
-  padding-top: 5px;
-  padding-bottom: 10px;
-}
 
 .reservasview-options{
   list-style: none;
@@ -219,17 +169,6 @@ background: #d4d4d4;
 
 .reservasview-options li{
   margin-top: 7px;
-}
-
-.show-sessions{
-  background-color: white;
-  border: 0;
-  color: #21618C;
-  font-size: 15px;
-}
-
-.show-sessions:hover{
-  text-decoration: underline;
 }
 
 .fa-trash-alt{

@@ -27,7 +27,7 @@
 
 <%if(customerBean.getTipo().equals(Tipo.no_admin)){	%>
 	
-	<div >
+
 	<li> <h1>Bienvenido <jsp:getProperty property="correo" name="customerBean"/> !!</h1> </li>
 		<%
         UsuarioDAO msd=new UsuarioDAO();
@@ -45,9 +45,11 @@
 		UsuarioDTO user = UsuarioManager.buscarUser(customerBean.getCorreo(),users);
         					
                     %>
+         <div class="hora">
 		<p>	Fecha y Hora: <%= sdf.format(new java.util.Date())%> </p>
 		<p> Fecha de Registro: <%=sdf.format(user.getFecha_inscripcion()) %></p>
 		<p> Fecha proxima reserva: <%= sdf.format(n.getFecha_hora()) %></p>
+		</div>
 	<li>
 		<ul >
 			<a href="../../ModifyUserController"><li><i class="fas fa-user-edit"></i>Modificar Datos</li></a>
@@ -63,7 +65,7 @@
 			
 		</ul>
 	</li>
-	</div>
+	
 	
           <div id="add-modal" class="modal">
         <a href="#" class="close"></a>
