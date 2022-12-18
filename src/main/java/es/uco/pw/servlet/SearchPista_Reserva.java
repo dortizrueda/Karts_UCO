@@ -50,6 +50,7 @@ public class SearchPista_Reserva extends HttpServlet {
 		ReservaDAO msu = new ReservaDAO();
 		ArrayList<PistaDTO>pista1=new ArrayList();
 		ArrayList<PistaDTO>pista=new ArrayList();
+
 		ArrayList<ReservaDTO>reserva=new ArrayList();
 		
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -66,28 +67,15 @@ public class SearchPista_Reserva extends HttpServlet {
 		}
 			
 		pista1=msd.getAll1();
-		reserva=msu.getAll2(fecha);
+		String pista_name=msu.getAll2(fecha);
 		for(int i=0;i<pista1.size();i++) {
-			for(int j=0;j<reserva.size();j++) {
-				if(pista1.get(i).getNombre().equals(reserva.get(j).getId_pista())) {
-					PistaDTO p=new PistaDTO();	
-					if(i==0) {
-							p=pista1.get(i);
-							pista.add(p);
-						}else {
-							if(!pista.get(i).equals(p)) {
-								p=pista1.get(i);
-								pista.add(p);
-							}
-						}
-						
-				}
-				
+			if(!pista1.get(i).getNombre().equals(pista_name)) {
+				pista.add(pista1.get(i));
 			}
-			
 		}
-		RequestDispatcher rd=request.getRequestDispatcher("MVC/view/verPistas.jsp");		
+		RequestDispatcher rd=request.getRequestDispatcher("MVC/view/verPistas_Fecha.jsp");		
 		request.setAttribute("pista", pista);
+		request.setAttribute("pista_name", pista_name);
 		rd.forward(request, response);
 	}
 
